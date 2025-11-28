@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toko Musik</title>
+  <title>Profil - Toko Musik</title>
   <style>
     body {
       font-family: "Poppins", sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #1e1e1e; /* tema gelap */
+      background-color: #1e1e1e;
       color: #f5f5f5;
     }
 
     /* Navbar */
     nav {
-      background-color: #111; 
+      background-color: #111;
     }
 
     nav ul {
@@ -54,7 +54,6 @@
       background-color: #222;
       border-radius: 6px;
       padding: 10px 0;
-      list-style: none;
       min-width: 180px;
     }
 
@@ -64,8 +63,8 @@
 
     nav ul ul li a {
       padding: 10px 20px;
-      color: #f5f5f5;
       font-size: 14px;
+      color: #f5f5f5;
     }
 
     nav ul ul li a:hover {
@@ -87,49 +86,55 @@
       border-radius: 12px;
     }
 
-    /* Container Produk */
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .product-card {
+    /* Profile Section */
+    .profile-section {
+      max-width: 900px;
+      margin: 40px auto;
       background-color: #2a2a2a;
-      width: 220px;
-      padding: 15px;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    }
+
+    .profile-section h2 {
       text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+      font-size: 28px;
+      color: #f39c12;
+      margin-bottom: 20px;
     }
 
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+    .profile-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #ddd;
+      text-align: justify;
     }
 
-    .product-card img {
-      width: 100%;
-      border-radius: 12px;
+    /* Visi Misi */
+    .visi-misi {
+      margin-top: 40px;
+      padding: 25px;
+      background-color: #242424;
+      border-radius: 16px;
+    }
+
+    .visi-misi h3 {
+      color: #f39c12;
       margin-bottom: 10px;
     }
 
-    .product-card h3 {
-      font-size: 18px;
-      margin: 10px 0 5px;
-      color: #fff;
+    .visi-misi ul {
+      padding-left: 20px;
     }
 
-    .product-card p {
-      font-size: 14px;
-      color: #bbb;
-      margin: 0;
+    .visi-misi ul li {
+      margin-bottom: 8px;
+      line-height: 1.6;
     }
+
   </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
@@ -158,13 +163,41 @@
 
   <!-- Banner -->
   <div class="banner">
-    <p>Tempat Banner</p>
+    <p>Profil Toko Musik</p>
   </div>
 
-  <!-- Produk -->
-  <center>
-  <h1>Profil</h1>
-  </center>
- 
+  <!-- Profile Section -->
+  <div class="profile-section">
+    <h2>Tentang Kami</h2>
+
+    <div class="profile-text">
+      <p>
+        Toko Musik kami berdiri dengan tujuan menyediakan alat musik berkualitas tinggi bagi para musisi,
+        baik pemula maupun profesional. Dengan pengalaman bertahun-tahun, kami berkomitmen memberikan
+        pelayanan terbaik, harga yang bersaing, dan produk orisinal dari brand ternama.
+      </p>
+
+      <p>
+        Kami tidak hanya menjual alat musik, tetapi juga membantu pelanggan memilih produk yang paling
+        cocok dengan kebutuhan mereka. Kepuasan pelanggan adalah prioritas utama kami dan kami selalu
+        berusaha memberikan pengalaman berbelanja yang nyaman dan terpercaya.
+      </p>
+    </div>
+
+    <!-- Visi Misi -->
+    <div class="visi-misi">
+      <h3>Visi</h3>
+      <p>Menjadi toko alat musik terbaik dan terpercaya di Indonesia.</p>
+
+      <h3>Misi</h3>
+      <ul>
+        <li>Menyediakan produk alat musik berkualitas tinggi.</li>
+        <li>Memberikan layanan ramah, cepat, dan profesional.</li>
+        <li>Mendukung perkembangan komunitas musik di Indonesia.</li>
+        <li>Menawarkan harga kompetitif dan berbagai pilihan pembayaran.</li>
+      </ul>
+    </div>
+  </div>
+
 </body>
 </html>
