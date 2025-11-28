@@ -9,68 +9,77 @@
       font-family: "Poppins", sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #1e1e1e; 
+      background-color: #1e1e1e;
       color: #f5f5f5;
     }
 
-    
-    nav {
-      background-color: #111; 
-    }
+ /* NAVBAR */
+nav {
+  background-color: #111; 
+  position: relative;
+  z-index: 100;
+}
 
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
 
-    nav ul li {
-      position: relative;
-    }
+nav ul li {
+  position: relative;
+}
 
-    nav ul li a {
-      display: block;
-      padding: 15px 20px;
-      color: #f5f5f5;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 16px;
-      transition: color 0.3s;
-    }
+nav ul li a {
+  display: block;
+  padding: 15px 20px;
+  color: #f5f5f5;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s;
+}
 
-    nav ul li a:hover {
-      color: #f39c12;
-    }
+nav ul li a:hover {
+  color: #f39c12;
+}
 
-    nav ul ul {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #222;
-      border-radius: 6px;
-      padding: 10px 0;
-      list-style: none;
-      min-width: 180px;
-    }
+/* SUBMENU */
+nav ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #222;
+  border-radius: 6px;
+  padding: 10px 0;
+  list-style: none;
+  min-width: 180px;
 
-    nav ul li:hover > ul {
-      display: block;
-    }
+  /* Tambah z-index biar ga ketutup elemen lain */
+  z-index: 9999;
+}
 
-    nav ul ul li a {
-      padding: 10px 20px;
-      color: #f5f5f5;
-      font-size: 14px;
-    }
+/* FIX UTAMA — submenu tetap terbuka saat mouse turun */
+nav ul li:hover > ul,
+nav ul ul:hover {
+  display: block;
+}
 
-    nav ul ul li a:hover {
-      background-color: #333;
-      color: #f39c12;
-    }
+nav ul ul li a {
+  padding: 10px 20px;
+  color: #f5f5f5;
+  font-size: 14px;
+}
+
+nav ul ul li a:hover {
+  background-color: #333;
+  color: #f39c12;
+}
+
 
 /* Banner Slider */
 .banner {
@@ -107,13 +116,20 @@
   100% { opacity: 0; }
 }
 
+    /* Section Title */
+    h1 {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-size: 32px;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+    }
 
     /* Container Produk */
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
+      gap: 20px;
       padding: 20px;
     }
 
@@ -124,12 +140,26 @@
       border-radius: 16px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
       text-align: center;
+      position: relative;
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+    }
+
+    /* Badge */
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #f39c12;
+      color: #111;
+      padding: 3px 8px;
+      font-size: 12px;
+      border-radius: 6px;
+      font-weight: bold;
     }
 
     .product-card img {
@@ -240,6 +270,7 @@
 
 </body>
 </html>
+
 
 
 
