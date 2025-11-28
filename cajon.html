@@ -9,81 +9,119 @@
       font-family: "Poppins", sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #1e1e1e; 
+      background-color: #1e1e1e;
       color: #f5f5f5;
     }
 
-    
-    nav {
-      background-color: #111; 
-    }
+ /* NAVBAR */
+nav {
+  background-color: #111; 
+  position: relative;
+  z-index: 100;
+}
 
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
 
-    nav ul li {
-      position: relative;
-    }
+nav ul li {
+  position: relative;
+}
 
-    nav ul li a {
-      display: block;
-      padding: 15px 20px;
-      color: #f5f5f5;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 16px;
-      transition: color 0.3s;
-    }
+nav ul li a {
+  display: block;
+  padding: 15px 20px;
+  color: #f5f5f5;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s;
+}
 
-    nav ul li a:hover {
-      color: #f39c12;
-    }
+nav ul li a:hover {
+  color: #f39c12;
+}
 
-    nav ul ul {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #222;
-      border-radius: 6px;
-      padding: 10px 0;
-      list-style: none;
-      min-width: 180px;
-    }
+/* SUBMENU */
+nav ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #222;
+  border-radius: 6px;
+  padding: 10px 0;
+  list-style: none;
+  min-width: 180px;
 
-    nav ul li:hover > ul {
-      display: block;
-    }
+  /* Tambah z-index biar ga ketutup elemen lain */
+  z-index: 9999;
+}
 
-    nav ul ul li a {
-      padding: 10px 20px;
-      color: #f5f5f5;
-      font-size: 14px;
-    }
+/* FIX UTAMA — submenu tetap terbuka saat mouse turun */
+nav ul li:hover > ul,
+nav ul ul:hover {
+  display: block;
+}
 
-    nav ul ul li a:hover {
-      background-color: #333;
-      color: #f39c12;
-    }
+nav ul ul li a {
+  padding: 10px 20px;
+  color: #f5f5f5;
+  font-size: 14px;
+}
 
-    /* Banner */
-    .banner {
-      width: 100%;
-      height: 250px;
-      background-color: #2c2c2c;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 24px;
-      color: #f5f5f5;
-      margin-bottom: 30px;
-      border-radius: 12px;
+nav ul ul li a:hover {
+  background-color: #333;
+  color: #f39c12;
+}
+
+
+/* Banner Slider */
+.banner {
+  width: 100%;
+  height: 400px;       /* tinggi tetap */
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  position: relative;  /* wajib untuk anak absolute */
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;        /* penuh container */
+  object-fit: cover;    /* menyesuaikan ukuran gambar */
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: fade 6s infinite;
+}
+
+/* Atur delay untuk 3 gambar */
+.banner img:nth-child(1) { animation-delay: 0s; }
+.banner img:nth-child(2) { animation-delay: 2s; }
+.banner img:nth-child(3) { animation-delay: 4s; }
+
+/* Animasi fading */
+@keyframes fade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  33% { opacity: 1; }
+  43% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+    /* Section Title */
+    h1 {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-size: 32px;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.6);
     }
 
     /* Container Produk */
@@ -91,7 +129,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
+      gap: 20px;
       padding: 20px;
     }
 
@@ -102,12 +140,26 @@
       border-radius: 16px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
       text-align: center;
+      position: relative;
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+    }
+
+    /* Badge */
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #f39c12;
+      color: #111;
+      padding: 3px 8px;
+      font-size: 12px;
+      border-radius: 6px;
+      font-weight: bold;
     }
 
     .product-card img {
@@ -168,46 +220,46 @@
   
     <div class="product-card">
       <img src="cajon/cajon9.jpeg" alt="cajon1">
-      <h3>Nama Produk</h3>
-      <p>Deskripsi</p>
+      <h3>J.LEIVA - JL013 - Cajon Medina Vintage Lacquered</h3>
+      <p>Rp4.000.000</p>
     </div>
     <div class="product-card">
       <img src="cajon/cajon2.jpeg" alt="cajon2">
-      <h3>Nama Produk</h3>
-      <p>Deskripsi</p>
+      <h3>J.LEIVA - JL009 - Cajon Zoco 2.0 Black & White</h3>
+      <p>Rp2.600.000</p>
     </div>
     <div class="product-card">
       <img src="cajon/cajon10.jpeg" alt="cajon3">
-      <h3>Nama Produk</h3>
-      <p>Deskripsi singkat produk.</p>
+      <h3>J.LEIVA - JL008 - Cajon Zoco 2.0 Lacquered</h3>
+      <p>Rp2.600.000</p>
     </div>
     <div class="product-card">
       <img src="cajon/cajon4.jpeg" alt="cajon4">
-      <h3>Nama Produk</h3>
-      <p>Deskripsi singkat produk.</p>
+      <h3>J.LEIVA - JL025 - Cajon Omeya Master Carbon</h3>
+      <p>Rp18.000.000</p>
     </div>
   </div>
   <div class="container">
     
     <div class="product-card">
       <img src="cajon/cajon5.jpeg" alt="cajon5">
-      <h3>Nama Produk</h3>
-      <p>Deskripsi singkat produk.</p>
+      <h3>J.LEIVA - JL019 - Cajon Omeya Evo lacquered</h3>
+      <p>Rp5.000.000</p>
     </div>
     <div class="product-card">
       <img src="cajon/cajon11.jpeg" alt="cajon6">
-      <h3>Nama Produk</h3>
-      <p>Deskripsi singkat produk.</p>
+      <h3>J.LEIVA - JL022 - Cajon Omeya Travel Series lacquered</h3>
+      <p>Rp10.000.000</p>
     </div>
     <div class="product-card">
       <img src="cajon/cajon12.jpeg" alt="cajon7">
-      <h3>Nama Produk</h3>
-      <p>Deskripsi singkat produk.</p>
+      <h3>J.LEIVA - JL011 - Cajon Alma Green Oiled & Waxe</h3>
+      <p>rP 2.900.000</p>
     </div>
     <div class="product-card">
       <img src="cajon/cajon8.jpeg" alt="cajon8">
-      <h3>Nama Produk</h3>
-      <p>Deskripsi singkat produk.</p>
+      <h3>J.LEIVA - JL012 - Cajon Alma Classé Lacquered</h3>
+      <p>Rp3.660.800</p>
     </div>
   
  </div>
@@ -215,6 +267,7 @@
 </body>
 
 </html>
+
 
 
 
